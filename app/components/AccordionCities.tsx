@@ -1,5 +1,5 @@
 'use client' 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const salesPoints = [
   {
@@ -33,7 +33,16 @@ const salesPoints = [
 
 
 export const AccordionCities = () => {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(0); 
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []); 
 
   return (
     <div>
@@ -44,15 +53,23 @@ export const AccordionCities = () => {
             <button
               type="button"
               className={`md:pointer-events-none flex items-center font-bold ${point.color} focus:outline-none`}
-              onClick={() => setOpen(open === idx ? -1 : idx)}
+              onClick={() => !isDesktop && setOpen(open === idx ? -1 : idx)}
+              tabIndex={isDesktop ? -1 : 0}
+              aria-expanded={isDesktop || open === idx}
+              aria-controls={`city-panel-${idx}`}
             >
-              {point.city}
+            
+              {point.city} 
+              {!isDesktop && (
               <span className="ml-2 text-xs md:hidden transform transition-transform"
                 style={{ transform: open === idx ? "rotate(180deg)" : "rotate(0)" }}>
-                ▼
-              </span>
-            </button>
-            {(open === idx || typeof window !== "undefined" && window.innerWidth >= 768) && (
+                
+              </span> 
+              )}
+            </button> 
+
+
+            {(isDesktop || open === idx) &&  (
               <div className="text-sm pl-3 mt-1">
                 {point.data.map((item, i) => (
                   <div key={i} className="flex items-center gap-1">
