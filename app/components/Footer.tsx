@@ -22,7 +22,7 @@ export default function Footer() {
           
           <div className="flex-1 min-w-[220px] flex flex-col gap-3">
               <Image src="/assets/icons/Recurso2.svg" alt="Polea" width={250} height={50} className="max-w-full max-h-full" /> 
-            <p className="text-sm max-w-xs text-justify">
+            <p className="text-sm max-w-xs ">
               Somos una empresa de bandas transportadoras en Medellín y Barranquilla que presta soluciones en diseño, fabricación y mejoramiento de procesos industriales de excelente calidad.
             </p>
            

@@ -1,9 +1,9 @@
 const ContactForm = () => (
-    <form className="bg-white shadow-lg rounded-md p-6 w-full max-w-[430px] mx-auto md:mx-0">
-      <h3 className="text-2xl font-bold text-gray-700 text-center mb-4 md:text-left">
+    <form className="bg-white shadow-lg rounded-md p-6 w-full max-w-[580px] mx-auto md:mx-0">
+      <h3 className="text-2xl font-bold text-gray-700 text-center mb-4 md:text-center">
         Lo asesoramos
       </h3>
-      {/* Grid en dos columnas en desktop, una en móvil */}
+   
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-gray-600">Nombre completo</label>
@@ -28,7 +28,7 @@ const ContactForm = () => (
             placeholder="Escribe su número de teléfono"
             className="border rounded px-3 py-2 text-gray-700 bg-gray-100"
           />
-          {/* <span className="text-xs text-red-600">*Campo requerido</span> */}
+        
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-gray-600">Empresa</label>
